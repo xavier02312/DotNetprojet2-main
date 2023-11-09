@@ -32,12 +32,27 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         /// <summary>
         /// Get all products from the inventory
         /// </summary>
-        public Product[] GetAllProducts()
+        public List<Product> GetAllProducts()
         {
-            List<Product> list = _products.Where(p => p.Stock > 0).OrderBy(p => p.Name).ToList();
-            return list.ToArray();
+            List<Product> list = _products.Where(p => p.Stock > 0).OrderBy(p => p.Name).ToList(); // Product []
+            return list;
         }
-
+        /// <summary>
+        /// Find a product from the inventory
+        /// </summary>
+        public Product GetProductById(int id)
+        {
+            // Recherche de produit
+            foreach (var product in _products)
+            {
+                if (product.Id == id)   // Si un produit correspond à sont identifiant id 
+                {
+                    return product;     // retournez le produit correspondant
+                }
+            }
+            // Sinon rien
+            return null;
+        }
         /// <summary>
         /// Update the stock of a product in the inventory by its id
         /// </summary>
