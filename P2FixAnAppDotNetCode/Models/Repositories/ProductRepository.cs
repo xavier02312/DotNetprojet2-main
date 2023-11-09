@@ -34,7 +34,7 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         /// </summary>
         public List<Product> GetAllProducts()
         {
-            List<Product> list = _products.Where(p => p.Stock > 0).OrderBy(p => p.Name).ToList(); // Product []
+            List<Product> list = _products.Where(p => p.Stock > 0).OrderBy(p => p.Name).ToList();
             return list;
         }
         /// <summary>
