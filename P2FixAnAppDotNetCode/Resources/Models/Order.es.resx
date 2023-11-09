@@ -127,7 +127,7 @@
     <value>Por favor ingrese el nombre de un país</value>
   </data>
   <data name="ErrorMissingName" xml:space="preserve">
-    <value>Por favor ingresa un nombre</value>
+    <value>por favor, escriba su nombre</value>
   </data>
   <data name="ErrorMissingZip" xml:space="preserve">
     <value>Por favor introduce un código postal</value>
