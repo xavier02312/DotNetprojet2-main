@@ -8,10 +8,13 @@ namespace P2FixAnAppDotNetCode.Models
     /// </summary>
     public class Cart : ICart
     {
+        // Ajout champs priver de panier
+        private List<CartLine> _cartLines = new List<CartLine>();
+
         /// <summary>
         /// Read-only property for dispaly only
         /// </summary>
-        public IEnumerable<CartLine> Lines => GetCartLineList();
+        public IEnumerable<CartLine> Lines => _cartLines;
 
         /// <summary>
         /// Return the actual cartline list
@@ -19,7 +22,7 @@ namespace P2FixAnAppDotNetCode.Models
         /// <returns></returns>
         private List<CartLine> GetCartLineList()
         {
-            return new List<CartLine>();
+            return _cartLines;
         }
 
         /// <summary>
@@ -27,7 +30,33 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>//
         public void AddItem(Product product, int quantity)
         {
-            // TODO implement the method
+            // Appel du panier vide
+            CartLine cartLine = null;
+            //TODO implement AddItem DONE
+            // Recherchez si le produit est déjà dans le panier
+            foreach (var line in _cartLines)
+            {
+                if (line.Product.Id == product.Id)
+                {
+                    cartLine = line;
+                    break;
+                }
+            }
+
+            // Si le produit est déjà dans le panier, augmentez la quantité
+            if (cartLine != null)
+            {
+                cartLine.Quantity += quantity;
+            }
+            // Sinon, ajoutez un nouvel élément CartLine au panier
+            else
+            {
+                _cartLines.Add(new CartLine
+                {
+                    Product = product,
+                    Quantity = quantity
+                });
+            }
         }
 
         /// <summary>
@@ -42,7 +71,15 @@ namespace P2FixAnAppDotNetCode.Models
         public double GetTotalValue()
         {
             // TODO implement the method
-            return 0.0;
+            // déclaration du total à 2 chiffre avec une virgule
+            double _TotalValue = 0.0;
+            // boucle sur le panier pour trouver les prix de product
+            foreach (var line in _cartLines)
+            {
+                _TotalValue += line.Product.Price * line.Quantity;
+            }
+            // Retournez le prix 
+            return _TotalValue;
         }
 
         /// <summary>
@@ -51,7 +88,23 @@ namespace P2FixAnAppDotNetCode.Models
         public double GetAverageValue()
         {
             // TODO implement the method
-            return 0.0;
+            // Déclaration de la valeur moyenne 
+            double _AverageValue = 0.0;
+            // Déclaration du nombre dd produit à 0
+            int nbArticle = 0;
+
+            // Boucle sur le panier
+            foreach (var line in _cartLines)
+            {
+                nbArticle += line.Quantity; //Ajoute le nombre d'article 
+            }
+            // Vérifiez si nbArticle est supérieur à zéro avant de faire la division
+            if (nbArticle > 0)
+            {
+                _AverageValue = GetTotalValue() / nbArticle;
+            }
+
+            return _AverageValue;  // Retournez la valeur moyenne
         }
 
         /// <summary>
@@ -60,6 +113,19 @@ namespace P2FixAnAppDotNetCode.Models
         public Product FindProductInCartLines(int productId)
         {
             // TODO implement the method
+            // Déclare le produit à pas de produit
+            Product product = null;
+
+            // Compare chaque identifiant de chaque produit avec l'identifiant fourni
+            foreach (var line in _cartLines)
+            {
+                //Renvoie le produit correspondant  à l'ID
+                if (line.Product.Id == productId)
+                {
+                    return line.Product; // retournez le produit
+                }
+            }
+            // retournez rien sinon
             return null;
         }
 
