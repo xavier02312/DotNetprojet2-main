@@ -117,34 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Average" xml:space="preserve">
-    <value>Promedio</value>
+  <data name="ErrorMissingAddress" xml:space="preserve">
+    <value>Please enter an address</value>
   </data>
-  <data name="Checkout" xml:space="preserve">
-    <value>Verificar</value>
+  <data name="ErrorMissingCity" xml:space="preserve">
+    <value>Please enter the name of a city</value>
   </data>
-  <data name="ContinueShopping" xml:space="preserve">
-    <value>Seguir comprando</value>
+  <data name="ErrorMissingCountry" xml:space="preserve">
+    <value>Please enter the name of a country</value>
   </data>
-  <data name="Item" xml:space="preserve">
-    <value>Artículo</value>
+  <data name="ErrorMissingName" xml:space="preserve">
+    <value>Please enter a name</value>
   </data>
-  <data name="Price" xml:space="preserve">
-    <value>Precio</value>
-  </data>
-  <data name="Quantity" xml:space="preserve">
-    <value>Cantidad</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Eliminar</value>
-  </data>
-  <data name="Subtotal" xml:space="preserve">
-    <value>Total parcial</value>
-  </data>
-  <data name="Total" xml:space="preserve">
-    <value>Total</value>
-  </data>
-  <data name="YourCart" xml:space="preserve">
-    <value>TuCarrito</value>
+  <data name="ErrorMissingZip" xml:space="preserve">
+    <value>Please enter a postal code</value>
   </data>
 </root>
