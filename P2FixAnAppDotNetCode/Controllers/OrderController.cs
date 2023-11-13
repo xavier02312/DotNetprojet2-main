@@ -31,7 +31,7 @@ namespace P2FixAnAppDotNetCode.Controllers
             if (ModelState.IsValid)
             {
                 order.Lines = (_cart as Cart)?.Lines.ToArray();
-                _orderService.SaveOrder(order);
+                _orderService.SaveOrder(order);             
                 return RedirectToAction(nameof(Completed));
             }
             else
