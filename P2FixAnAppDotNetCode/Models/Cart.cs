@@ -141,7 +141,7 @@ namespace P2FixAnAppDotNetCode.Models
         /// Clears a the cart of all added products
         /// </summary>
         public void Clear()
-        {
+        { 
             List<CartLine> cartLines = GetCartLineList();
             cartLines.Clear();
         }
