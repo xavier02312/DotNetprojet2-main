@@ -113,19 +113,16 @@ namespace P2FixAnAppDotNetCode.Models
         public Product FindProductInCartLines(int productId)
         {
             // TODO implement the method
-            // Déclare le produit à pas de produit
             Product product = null;
-
-            // Compare chaque identifiant de chaque produit avec l'identifiant fourni
+            //compare chaque identifiant de chaque produit avec l'identifiant fourni
             foreach (var line in _cartLines)
             {
                 //Renvoie le produit correspondant  à l'ID
                 if (line.Product.Id == productId)
                 {
-                    return line.Product; // retournez le produit
+                    return line.Product;
                 }
             }
-            // retournez rien sinon
             return null;
         }
 

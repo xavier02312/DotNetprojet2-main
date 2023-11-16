@@ -29,7 +29,7 @@ namespace P2FixAnAppDotNetCode
             services.AddSingleton<ICart, Cart>();
             services.AddSingleton<ILanguageService, LanguageService>();
             services.AddTransient<IProductService, ProductService>();
-            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddSingleton<IProductRepository, ProductRepository>();  //créer qu'une seule instance de ProductRepository qui sera réutilisée pour toutes les requêtes HTTP
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddMemoryCache();

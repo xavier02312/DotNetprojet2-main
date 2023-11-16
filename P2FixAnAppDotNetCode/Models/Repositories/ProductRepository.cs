@@ -59,15 +59,10 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         public void UpdateProductStocks(int productId, int quantityToRemove)
         {
             Product product = _products.First(p => p.Id == productId);
-            
-            if (product != null && product.Stock >= quantityToRemove) 
-            {
-                product.Stock -= quantityToRemove;
-          
-            // TODO Save changes to the database
-            _products.Add(product);
+            product.Stock -= quantityToRemove;
 
-            }          
+            if (product.Stock == 0)
+                _products.Remove(product);
         }
     }
 }
