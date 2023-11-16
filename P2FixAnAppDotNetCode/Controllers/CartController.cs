@@ -25,10 +25,10 @@ namespace P2FixAnAppDotNetCode.Controllers
         public RedirectToActionResult AddToCart(int id)
         {
             Product product = _productService.GetProductById(id);
-
+        
             if (product != null)
             {
-                _cart.AddItem(product, 1);
+                _cart.AddItem(product, 1); 
                 return RedirectToAction("Index");
             }
             else
